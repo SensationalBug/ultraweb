@@ -9,7 +9,6 @@ export const Inicio = () => {
     <div className="container-fluid">
       <div className="row justify-content-center">
         <div className="col-10 logo">
-
             <FontAwesomeIcon
               icon={faLaptopCode}
               size="10x"
@@ -18,7 +17,7 @@ export const Inicio = () => {
             />
           <h1 className="d-block ultrawebName">UltraWeb</h1>
         </div>
-        <Card />
+        <Card/>
       </div>
     </div>
   );

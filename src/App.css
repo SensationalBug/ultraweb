@@ -6,45 +6,84 @@
   background-color: #3c99c5;
 }
 
+.navBarButton:hover {
+  transition: 1.5s;
+  background-color: #2e7799;
+}
+
 .ultrawebName {
   color: #3c99c5;
 }
 
-.conocenos{
+.boton {
+  margin: 45px;
+}
+
+.conocenos {
   height: 90vh;
 }
 
-.fotoPerfil{
+.fotoPerfil {
   border-radius: 1%;
   width: 100%;
   height: 80vh;
-  opacity: .0;
 }
 
-.recuadro{
+.recuadro {
   color: white;
   background-color: #3c99c5;
 }
 
-.fotoPerfil:hover{
-  transition: .5s;
+.fotoPerfil:hover {
+  transition: 0.5s;
 }
 
-.recuadro:hover{
-  color:#3c99c5;
-  transition: .9s;
-  background-color: white;
+.parrafo {
+  width: 250px;
+  font-size: 15px;
+  position: relative;
+  left: 15%;
 }
 
-@media only screen and (max-width: 600px){
-  .logo{
+@media only screen and (max-width: 600px) {
+  .logo {
     height: 100vh;
     margin-top: 20vh;
   }
+
+  .parrafo {
+    width: 285px;
+    font-size: 20px;
+    position: relative;
+    left: 15%;
+  }
+
+  .boton:nth-child(1) {
+    margin-bottom: 50vh;
+  }
+
+  .boton:nth-child(2) {
+    margin-bottom: 50vh;
+  }
+
+  .boton:nth-child(3) {
+    margin-bottom: 40vh;
+  }
 }
 
+@media only screen and (min-width: 1500px) {
+  .cards {
+    margin-top: 15vh;
+  }
 
+  .parrafo {
+    width: 250px;
+    font-size: 18px;
+    position: relative;
+    left: 14%;
+  }
 
-
-
-/* FALTA LA PARTE DE LOBELTO Y LOS MODALES */
+  .conocenos {
+    height: 93vh;
+  }
+}

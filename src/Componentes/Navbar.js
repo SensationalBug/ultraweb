@@ -12,15 +12,15 @@ export const Navbar = () => {
         <nav className="navbar navbar-expand-lg Navbar py-0">
           <div className="container-fluid">
             <span className="navbar-brand text-white">
-              <FontAwesomeIcon icon={faLaptopCode} />
+              <FontAwesomeIcon icon={faLaptopCode} className="mr-1"/>
               UltraWeb
             </span>
             <span className="navbar-text">
               <Link to="/">
-                <button className="text-white btn">Inicio</button>
+                <button className="text-white btn navBarButton">Inicio</button>
               </Link>
               <Link to="/conocenos">
-                <button className="text-white btn">Conocenos</button>
+                <button className="text-white btn navBarButton">Conocenos</button>
               </Link>
             </span>
           </div>
