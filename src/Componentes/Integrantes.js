@@ -6,19 +6,9 @@ export const Pedro = () => {
   const flip = () => setFlipped((girar) => !girar);
 
   const front = (
-    <div onClick={() => flip()}>
-      <img
-        className="fotoPerfil"
-        alt="..."
-        src="https://firebasestorage.googleapis.com/v0/b/showme-69989.appspot.com/o/Fotos%20de%20proyecto%2Fpedro3.png?alt=media&token=d97f3889-34c1-4208-80ea-8eec7337ad61"
-      />
-    </div>
-  );
-
-  const back = (
-    <div onClick={() => flip()} className="h-100">
+    <div onClick={() => flip()} className="h-100 contenedor">
       <h2 className="pt-3 pb-0">Pedro Luis De Leon</h2>
-      <div className="parrafo text-justify" id="parrafoDaniel">
+      <div className="parrafo text-justify">
         <p>
           Técnico en informática y encargado de desarrollo en el proyecto
           UltreWeb.
@@ -30,6 +20,16 @@ export const Pedro = () => {
           herramientas.
         </p>
       </div>
+    </div>
+  );
+
+  const back = (
+    <div onClick={() => flip()}>
+      <img
+        className="fotoPerfil"
+        alt="..."
+        src="https://firebasestorage.googleapis.com/v0/b/ultraweb-ec96d.appspot.com/o/pedro2.png?alt=media&token=06a144df-2675-4954-80ef-b23057328b08"
+      />
     </div>
   );
 
@@ -45,17 +45,7 @@ export const Daniel = () => {
   const flip = () => setFlipped((girar) => !girar);
 
   const front = (
-    <div onClick={() => flip()}>
-      <img
-        className="fotoPerfil"
-        alt="..."
-        src="https://firebasestorage.googleapis.com/v0/b/showme-69989.appspot.com/o/Fotos%20de%20proyecto%2Fdaniel.png?alt=media&token=4c9514aa-3000-4cc5-9283-9e2eeac14766"
-      />
-    </div>
-  );
-
-  const back = (
-    <div onClick={() => flip()} className="h-100">
+    <div onClick={() => flip()} className="h-100 contenedor">
       <h2 className="pt-3 pb-0">Daniel Marquez</h2>
       <div className="parrafo text-justify">
         <p>
@@ -71,6 +61,16 @@ export const Daniel = () => {
     </div>
   );
 
+  const back = (
+    <div onClick={() => flip()}>
+      <img
+        className="fotoPerfil"
+        alt="..."
+        src="https://firebasestorage.googleapis.com/v0/b/ultraweb-ec96d.appspot.com/o/daniel.png?alt=media&token=33aaeed7-e19a-42ba-bbfc-c39ab3b46bd0"
+      />
+    </div>
+  );
+
   return (
     <div>
       <FlipCard isFlipped={isFlipped} front={front} back={back} />
@@ -83,18 +83,8 @@ export const Lobelto = () => {
   const flip = () => setFlipped((girar) => !girar);
 
   const front = (
-    <div onClick={() => flip()}>
-      <img
-        className="fotoPerfil"
-        alt="..."
-        src="https://firebasestorage.googleapis.com/v0/b/showme-69989.appspot.com/o/Fotos%20de%20proyecto%2Flobelto.png?alt=media&token=e862caa6-d024-405b-9208-a5e02f02dfe7"
-      />
-    </div>
-  );
-
-  const back = (
-    <div onClick={() => flip()} className="h-100">
-      <h2 className="pt-3 pb-0">Lobelto Tavarez</h2>
+    <div onClick={() => flip()} className="h-100 contenedor">
+      <h2 className="pt-3 pb-0">Robelto Tavarez</h2>
       <div className="parrafo text-justify">
         <p>Técnico en informática y presidente del Proyecto UltraWeb.</p>
         <p>
@@ -103,6 +93,16 @@ export const Lobelto = () => {
           O&M, Ahora me centro en el campo de educación digital.
         </p>
       </div>
+    </div>
+  );
+
+  const back = (
+    <div onClick={() => flip()}>
+      <img
+        className="fotoPerfil"
+        alt="..."
+        src="https://firebasestorage.googleapis.com/v0/b/ultraweb-ec96d.appspot.com/o/lobelto.png?alt=media&token=6dec48d3-cde5-483b-8ba5-21f201bb8018"
+      />
     </div>
   );
 

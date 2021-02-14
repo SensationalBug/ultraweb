@@ -1,9 +1,15 @@
 .App {
+  height: 100vh;
   text-align: center;
+  background-color: #f3f3f3;
 }
 
 .Navbar {
   background-color: #3c99c5;
+}
+
+.text-white {
+  text-decoration: none;
 }
 
 .navBarButton:hover {
@@ -19,19 +25,28 @@
   margin: 45px;
 }
 
+.closeButton{
+  position: absolute;
+  left: 95%;
+}
+
 .conocenos {
   height: 90vh;
+}
+
+.contenedor {
+  padding-top: 20vh;
+}
+
+.recuadro{
+  background-color: #3c99c5;
+  color: white;
 }
 
 .fotoPerfil {
   border-radius: 1%;
   width: 100%;
   height: 80vh;
-}
-
-.recuadro {
-  color: white;
-  background-color: #3c99c5;
 }
 
 .fotoPerfil:hover {
@@ -45,10 +60,28 @@
   left: 15%;
 }
 
+.contactanos {
+  margin-top: 2vh;
+  height: 100px;
+}
+
+.contactForm {
+  background-color: white;
+}
+
+.textarea {
+  resize: none;
+}
+
 @media only screen and (max-width: 600px) {
   .logo {
     height: 100vh;
     margin-top: 20vh;
+  }
+
+  .closeButton{
+    position: absolute;
+    left: 90%;
   }
 
   .parrafo {
@@ -69,10 +102,14 @@
   .boton:nth-child(3) {
     margin-bottom: 40vh;
   }
+
+  .contactanos {
+    margin-top: 8vh;
+  }
 }
 
 @media only screen and (min-width: 1500px) {
-  .cards {
+  .bubbles {
     margin-top: 15vh;
   }
 
@@ -85,5 +122,9 @@
 
   .conocenos {
     height: 93vh;
+  }
+
+  .contactanos {
+    margin-top: 8vh;
   }
 }

@@ -1,5 +1,5 @@
 import { React } from "react";
-import { Card } from "./Card";
+import { Bubbles } from "./Bubbles";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLaptopCode } from "@fortawesome/free-solid-svg-icons";
@@ -17,7 +17,7 @@ export const Inicio = () => {
             />
           <h1 className="d-block ultrawebName">UltraWeb</h1>
         </div>
-        <Card/>
+        <Bubbles/>
       </div>
     </div>
   );

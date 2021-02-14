@@ -6,15 +6,20 @@ import {
   ModalBody,
   ModalFooter,
   Tooltip,
+  Collapse,
+  ListGroup,
+  ListGroupItem,
 } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMoneyBillAlt,
   faServer,
   faHdd,
+  faPlus,
+  faEllipsisV,
 } from "@fortawesome/free-solid-svg-icons";
 
-export const Card = () => {
+export const Bubbles = () => {
   const [modalWindow1, setmodalWindow1] = useState(false);
   const [modalWindow2, setmodalWindow2] = useState(false);
   const [modalWindow3, setmodalWindow3] = useState(false);
@@ -22,21 +27,31 @@ export const Card = () => {
   const [tooltipRegistroOpen, setTooltipRegistroOpen] = useState(false);
   const [tooltipVersionesOpen, setTooltipVersionesOpen] = useState(false);
   const [tooltipParchesOpen, setTooltipParchesOpen] = useState(false);
-
   const [tooltipSeoOpen, setTooltipSeoOpen] = useState(false);
   const [tooltipAnaliticaOpen, setTooltipAnaliticaOpen] = useState(false);
   const [tooltipMigracionOpen, setTooltipMigracionOpen] = useState(false);
 
-  const toggle = (toolipOption, setToolTipOption = Boolean) =>
-    setToolTipOption(!toolipOption);
+  const [collapseValue, setCollapseValue] = useState(false);
+
+  const [princingToolTip, setPrincinToolTip] = useState(false);
+
+  const [onePage, setOnePage] = useState(false);
+  const [webS, setWebS] = useState(false);
+  const [WebA, setWebA] = useState(false);
+  const [tiendaOnline, setTiendaOnline] = useState(false);
 
   const openModal = (modalWindowSelection, setmodalWindowSelection = Boolean) =>
     setmodalWindowSelection(!modalWindowSelection);
 
+  const toggle = (toolipOption, setToolTipOption = Boolean) =>
+    setToolTipOption(!toolipOption);
+
+  const openCollapse = (prevState, NextState) => NextState(!prevState);
+
   return (
-    <div className="cards">
+    <div className="bubbles">
       <button
-        className="btn btn-secondary p-5 rounded-circle boton"
+        className="btn btn-info text-white p-5 rounded-circle boton"
         onClick={() => openModal(modalWindow1, setmodalWindow1)}
       >
         <FontAwesomeIcon icon={faHdd} size="4x" />
@@ -52,7 +67,7 @@ export const Card = () => {
       </button>
 
       <button
-        className="btn btn-danger p-5 rounded-circle boton"
+        className="btn btn-info p-5 rounded-circle boton"
         onClick={() => openModal(modalWindow3, setmodalWindow3)}
       >
         <FontAwesomeIcon icon={faMoneyBillAlt} size="4x" />
@@ -60,7 +75,7 @@ export const Card = () => {
       </button>
 
       <Modal isOpen={modalWindow1} centered>
-        <ModalHeader>
+        <ModalHeader className="bg-info text-white justify-content-center">
           <span className="h2">Products</span>
         </ModalHeader>
         <ModalBody>
@@ -92,19 +107,16 @@ export const Card = () => {
             </div>
           </div>
         </ModalBody>
-        <ModalFooter>
-          <button
-            className="btn btn-secondary w-100"
-            onClick={() => openModal(modalWindow1, setmodalWindow1)}
-            type="button"
-          >
-            Close
-          </button>
+        <ModalFooter
+          className="btn btn-info text-white w-100 justify-content-center"
+          onClick={() => openModal(modalWindow1, setmodalWindow1)}
+        >
+          <h4>Close</h4>
         </ModalFooter>
       </Modal>
 
       <Modal isOpen={modalWindow2} centered>
-        <ModalHeader>
+        <ModalHeader className="bg-info text-white justify-content-center">
           <span className="h2">Services</span>
         </ModalHeader>
         <ModalBody>
@@ -333,33 +345,184 @@ export const Card = () => {
             </div>
           </div>
         </ModalBody>
-        <ModalFooter>
-          <button
-            className="btn btn-info w-100"
-            onClick={() => openModal(modalWindow2, setmodalWindow2)}
-            type="button"
-          >
-            Close
-          </button>
+        <ModalFooter
+          className="btn btn-info w-100 justify-content-center"
+          onClick={() => openModal(modalWindow2, setmodalWindow2)}
+        >
+          <h3>Close</h3>
         </ModalFooter>
       </Modal>
 
-      <Modal isOpen={modalWindow3} centered>
-        <ModalHeader>
-          <span className="">Esto es una ventana modal 3</span>
-        </ModalHeader>
-        <ModalBody>
-          <h3 className="py-3">OYM</h3>
-          <p className="text-justify">Alajusba</p>
-        </ModalBody>
-        <ModalFooter>
+      <Modal className="modal-xl" isOpen={modalWindow3} centered>
+        <ModalHeader className="bg-info text-white justify-content-center">
+          <span className="h2">
+            Pricing
+            <FontAwesomeIcon
+              className="ml-3 pt-1"
+              icon={faEllipsisV}
+              id="pricing"
+            />
+            <Tooltip
+            className="text-justify"
+              placement="right"
+              isOpen={princingToolTip}
+              target="pricing"
+              toggle={() => toggle(princingToolTip, setPrincinToolTip)}
+            >
+              <p className="h6 mb-3">Todas las Webs incluyen:</p>
+              <li className="text-left">Dominio (.com) por 1 año</li>
+              <li className="text-left">Hosting por 1 año</li>
+              <li className="text-left">Certificado SSL</li>
+              <p className="mt-3 text-justify">
+                Para ver los precios presione en el nombre de la Web que desea
+              </p>
+            </Tooltip>
+          </span>
           <button
-            className="btn btn-danger w-100"
-            onClick={() => openModal(modalWindow3, setmodalWindow3)}
-            type="button"
+            className="btn btn-dark closeButton"
+            onClick={() => openCollapse(collapseValue, setCollapseValue)}
           >
-            Close
+            <FontAwesomeIcon icon={faPlus} />
           </button>
+        </ModalHeader>
+        <ModalBody className="modalBody">
+          <div className="row justify-content-center">
+            <div className="col-md-3 col-6 text-center">
+              <h4
+                className="text-white bg-info rounded"
+                onClick={() => openCollapse(onePage, setOnePage)}
+              >
+                OnePage
+              </h4>
+              <Collapse isOpen={onePage} className="my-2">
+                <span className="border border-info rounded px-2">RD$8,000</span>
+              </Collapse>
+              <Collapse isOpen={collapseValue}>
+                <ListGroup className=" py-1">
+                  <ListGroupItem className="py-2">4 Secciones.</ListGroupItem>
+                  <ListGroupItem className="py-2">
+                    Redes Sociales.
+                  </ListGroupItem>
+                  <ListGroupItem className="py-2">
+                    Soporte técnico.
+                  </ListGroupItem>
+                  <ListGroupItem className="py-2">
+                    Form de Contacto.
+                  </ListGroupItem>
+                  <ListGroupItem className="py-2">
+                    Diseño Responsive.
+                  </ListGroupItem>
+                </ListGroup>
+              </Collapse>
+            </div>
+            <div className="col-md-3 col-6 text-center ">
+              <h4
+                className="text-white bg-info rounded"
+                onClick={() => openCollapse(webS, setWebS)}
+              >
+                Web Sencilla
+              </h4>
+              <Collapse isOpen={webS} className="my-2">
+                <span className="border border-info rounded px-2">RD$10,000</span>
+              </Collapse>
+              <Collapse isOpen={collapseValue}>
+                <ListGroup className="py-2">
+                  <ListGroupItem className="py-1">Blog.</ListGroupItem>
+                  <ListGroupItem className="py-2">5 Secciones.</ListGroupItem>
+                  <ListGroupItem className="py-2">
+                    Redes Sociales.
+                  </ListGroupItem>
+                  <ListGroupItem className="py-2">
+                    Soporte técnico.
+                  </ListGroupItem>
+                  <ListGroupItem className="py-2">
+                    Form de Contacto.
+                  </ListGroupItem>
+                  <ListGroupItem className="py-2">
+                    Diseño Responsive.
+                  </ListGroupItem>
+                </ListGroup>
+              </Collapse>
+            </div>
+            <div className="col-md-3 col-6 text-center ">
+              <h4
+                className="text-white bg-info rounded"
+                onClick={() => openCollapse(WebA, setWebA)}
+              >
+                Web Avanzada
+              </h4>
+              <Collapse isOpen={WebA} className="my-2">
+                <span className="border border-info rounded px-2">RD$13,000</span>
+              </Collapse>
+              <Collapse isOpen={collapseValue}>
+                <ListGroup className="py-1">
+                  <ListGroupItem className="py-2">Blog</ListGroupItem>
+                  <ListGroupItem className="py-2">10 Secciones.</ListGroupItem>
+                  <ListGroupItem className="py-2">
+                    Soporte técnico.
+                  </ListGroupItem>
+                  <ListGroupItem className="py-2">
+                    Form de Contacto.
+                  </ListGroupItem>
+                  <ListGroupItem className="py-2">
+                    Botón de WhatsApp.
+                  </ListGroupItem>
+                  <ListGroupItem className="py-2">
+                    Diseño Responsive.
+                  </ListGroupItem>
+                  <ListGroupItem className="py-2">
+                    Enlace a Redes Sociales.
+                  </ListGroupItem>
+                </ListGroup>
+              </Collapse>
+            </div>
+            <div className="col-md-3 col-6 text-center ">
+              <h4
+                className="text-white bg-info rounded"
+                onClick={() => openCollapse(tiendaOnline, setTiendaOnline)}
+              >
+                Tienda Online
+              </h4>
+              <Collapse isOpen={tiendaOnline} className="my-2">
+                <span className="border border-info rounded px-2">RD$15,000</span>
+              </Collapse>
+              <Collapse isOpen={collapseValue}>
+                <ListGroup className="py-1">
+                  <ListGroupItem className="py-2">Categorías.</ListGroupItem>
+                  <ListGroupItem className="py-1">
+                    Soporte técnico.
+                  </ListGroupItem>
+                  <ListGroupItem className="py-1">
+                    Métodos de pago.
+                  </ListGroupItem>
+                  <ListGroupItem className="py-1">
+                    Form de Contacto.
+                  </ListGroupItem>
+                  <ListGroupItem className="py-1">
+                    Botón de WhatsApp.
+                  </ListGroupItem>
+                  <ListGroupItem className="py-1">
+                    Diseño Responsive.
+                  </ListGroupItem>
+                  <ListGroupItem className="py-1">
+                    1 Correo corporativos.
+                  </ListGroupItem>
+                  <ListGroupItem className="py-1">
+                    5 Páginas de Contenido.
+                  </ListGroupItem>
+                  <ListGroupItem className="py-1">
+                    Enlace a Redes Sociales.
+                  </ListGroupItem>
+                </ListGroup>
+              </Collapse>
+            </div>
+          </div>
+        </ModalBody>
+        <ModalFooter
+          className="btn btn-info w-100 justify-content-center"
+          onClick={() => openModal(modalWindow3, setmodalWindow3)}
+        >
+          <h3>Close</h3>
         </ModalFooter>
       </Modal>
     </div>
